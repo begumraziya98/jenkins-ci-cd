@@ -10,8 +10,8 @@ pipeline {
             APP_NAME="spring-docker-cicd"
             RELEASE_NUMBER="1.0.0"
             DOCKER_USER="raziya9959"
-            //IMAGE_NAME="${DOCKER_USER}" + "/" +"${APP_NAME}" 
-            //IMAGE_TAG="${RELEASE_NUMBER}-${BUILD_NUMBER}"
+            IMAGE_NAME="${DOCKER_USER}"+"/"+"${APP_NAME}" 
+            IMAGE_TAG="${RELEASE_NUMBER}-${BUILD_NUMBER}"
         }
         
 //// stage 1: scm checkout
@@ -37,7 +37,7 @@ pipeline {
       stage('Build Image'){
           steps{
               script{
-                   bat 'docker build -t ${DOCKER_USER}/${APP_NAME}:${RELEASE_NUMBER}-${BUILD_NUMBER} .'
+                  bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                   
               }
           }
