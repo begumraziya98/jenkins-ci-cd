@@ -37,7 +37,7 @@ pipeline {
       stage('Build Image'){
           steps{
               script{
-                  bat 'build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+                  bat 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
                   
               }
           }
