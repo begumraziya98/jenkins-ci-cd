@@ -46,8 +46,8 @@ pipeline {
           steps{
               script{
                 withCredentials([string(credentialsId: 'docker-cred', variable: 'docker-cred')]) {
-                                    bat "docker login -u ${DOCKER_USER} -p ${docker-cred}"
-                                    bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                                    bat 'docker login -u ${DOCKER_USER} -p ${docker-cred}'
+                                    bat 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
                             }
               }
           }
