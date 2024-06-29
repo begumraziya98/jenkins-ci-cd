@@ -37,7 +37,10 @@ pipeline {
       stage('Build Image'){
           steps{
               script{
-                  bat 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+              		def imageName = "${env.IMAGE_NAME}"
+                    def imageTag = "${env.IMAGE_TAG}"
+                    // Make sure to escape $ properly for bat
+                  bat 'docker build -t ${imageName}:${imageTag} .'
                   
               }
           }
