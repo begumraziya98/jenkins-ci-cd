@@ -10,7 +10,7 @@ pipeline {
             APP_NAME="spring-docker-cicd"
             RELEASE_NUMBER="1.0.0"
             DOCKER_USER="raziya9959"
-            IMAGE_NAME="${DOCKER_USER}"+"/"+"${APP_NAME}" 
+            IMAGE_NAME="${DOCKER_USER}" + "/" +"${APP_NAME}" 
             IMAGE_TAG="${RELEASE_NUMBER}-${BUILD_NUMBER}"
         }
         
@@ -38,7 +38,8 @@ pipeline {
           steps{
               script{
                   bat 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
-               }
+                  
+              }
           }
       }
       stage('Deploy Image to Hub'){
